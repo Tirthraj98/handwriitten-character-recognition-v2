@@ -70,9 +70,9 @@ def predict_image(uploaded_file, character_model, character_label_dencoder,
         image = Image.open(uploaded_file)
         image = image.resize((50, 50))
         image = image.convert('L')
-        image = image.filter(ImageFilter.GaussianBlur(radius=1.7))
+        # image = image.filter(ImageFilter.GaussianBlur(radius=1.7))
         image = np.array(image)
-        # image = cv2.GaussianBlur(image, (3, 3),0)
+        image = cv2.GaussianBlur(image, (3, 3),0)
         image_array = image / 255.0
         image_array = np.expand_dims(image_array, axis=0)
 
